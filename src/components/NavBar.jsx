@@ -1,5 +1,7 @@
 
 import Link from 'next/link';
+import Image from "next/image";
+import avatarMe from '../../public/images/Of_Monsters_and_Men_-_Fever_Dream.png';
 
 export default function NavBar({ navLinks }) {
     return (
@@ -14,23 +16,29 @@ export default function NavBar({ navLinks }) {
                         </svg>
                     </label>
                     <ul tabIndex={0}
-                        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-lg">
                         {navLinks.map((navLink) => (
                             <li key={navLink.name}><Link href={navLink.href}>{navLink.name}</Link></li>
                         ))}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl">ManicTime Analyzer</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 text-lg">
                     {navLinks.map((navLink) => (
                         <li key={navLink.name}><Link href={navLink.href}>{navLink.name}</Link></li>
                     ))}
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <div class="avatar mx-3">
+                    <div class="w-10 rounded-full">
+                        <Link href='/me'>
+                        <Image src={avatarMe} alt='Me'/>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     );

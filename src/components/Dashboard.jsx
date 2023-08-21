@@ -11,7 +11,7 @@ import { format } from "date-fns";
 export default function DashBoard({ children }) {
 
     const today = format(new Date(), 'yyyy-MM-dd');
-    const [date, setDate] = useState({ start: '2023-1-20', end: '2023-2-14' });
+    const [date, setDate] = useState({ start: '2023-1-20', end: '2023-1-22' });
 
     const settings = {
         date: date
@@ -29,7 +29,7 @@ export default function DashBoard({ children }) {
                     }}
                     position="right"
                     format="YYYY-MM-DD"
-                    placeholder="Date From ... to ..."
+                    placeholder={`Date From ${date.start} to ${date.end}`}
                     calendars={2}
                 />
                 <button className="btn btn-primary btn-square" onClick={() => {
@@ -41,7 +41,7 @@ export default function DashBoard({ children }) {
                     <Image
                         src={syncLogo}
                         alt='Sync'
-                        className="w-5/6"
+                        className="w-2/3"
                     />
                 </button>
             </div>
